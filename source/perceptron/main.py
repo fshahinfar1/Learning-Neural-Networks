@@ -44,6 +44,7 @@ def main():
     tst, val, tst_lbl, val_lbl = get_data(file_add)
     vec_size = len(tst[0])
     neuron = Perceptron(vec_size, 0.1)
+    # train
     has_err = True
     iters = 0
     cnt_err = 0
@@ -62,6 +63,15 @@ def main():
             has_err = b or has_err
         print(f"iteration {iters} finished (err: {cnt_err})")
     print(f"learned weights: {neuron.w} bias: {neuron.b}")
+    # evaluate
+    cnt_err = 0
+    for x, y in zip(val, val_lbl):
+        p = neuron.input(x)
+        if p != y:
+            cnt_err += 1
+    count = len(val)
+    ratio = cnt_err / count
+    print(f"{cnt_err}/{count}: {ratio:.2f}")    
 
 
 if __name__ == '__main__':
