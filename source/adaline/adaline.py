@@ -31,7 +31,7 @@ class Adaline:
         """
         self.check_train_data(x)
         y = np.dot(self.w, x) + self.b
-        print(x, y)
+        # print(x, y)
         return y
 
     def feedback(self, val, exp, x):

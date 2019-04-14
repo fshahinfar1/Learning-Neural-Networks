@@ -65,7 +65,7 @@ def plot_data(data, label, ax):
     y0 = []
     x1 = []
     y1 = []
-    print(data)
+    # print(data)
     for point, lbl in zip(data, label):
         if lbl == 0:
             x0.append(point[0])
